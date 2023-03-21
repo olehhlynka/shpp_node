@@ -330,7 +330,7 @@ class Electronics extends AbstractProduct {
 }
 
 function searchProducts(products, search) {
-  const matched = [];
+  const foundProducts = [];
   const regexForSearch = search.includes("*")
     ? new RegExp(
         `\\b${search.slice(0, search.indexOf("*"))}`
@@ -339,45 +339,29 @@ function searchProducts(products, search) {
 
   for (const product of products) {
     if (product.getName().match(regexForSearch)) {
-      matched.push(product);
+      foundProducts.push(product);
     }
     if (product.getDescription().match(regexForSearch)) {
-      matched.push(product);
+      foundProducts.push(product);
     }
   }
-  return matched;
+  return foundProducts;
 }
 
 function sortProducts(products, sortRule) {
   switch (sortRule) {
     case "id": {
-      return products.sort(compareIDs);
+      return products.sort((a, b) => a.ID - b.ID);
     }
     case "price": {
-      return products.sort(comparePrice);
+      return products.sort((a, b) => a.price - b.price);
     }
     case "name": {
-      return products.sort(compareNames);
+      return products.sort((a, b) => a.name - b.name);
     }
     default:
       return products;
   }
-}
-
-function compareIDs(first, second) {
-  if (first.ID < second.ID) return -1;
-  if (first.ID > second.ID) return 1;
-  return 0;
-}
-
-function comparePrice(first, second) {
-  return first.price - second.price;
-}
-
-function compareNames(first, second) {
-  if (first.name < second.name) return -1;
-  if (first.name > second.name) return 1;
-  return 0;
 }
 
 // Testing
