@@ -1,0 +1,157 @@
+html {
+    scroll-behavior: smooth;
+}
+
+#black-square {
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    margin: 10px;
+}
+
+.square {
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+.btn-delete {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.yellow-square {
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.red-square {
+    height: 50px;
+    width: 50px;
+    background-color: red;
+    position: fixed;
+    top: 100px;
+    right: 300px;
+}
+
+.green-rect {
+    height: 20px;
+    width: 50px;
+    background-color: green;
+    position: fixed;
+    top: 200px;
+    right: 200px;
+}
+
+#image-form {
+    margin-bottom: 20px;
+}
+
+.info {
+    width: 150px;
+    height: 90px;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    border: solid;
+    font-size: 14px;
+}
+
+.x-coord, .y-coord {
+    margin: 0;
+}
+
+.language {
+    margin: 0;
+}
+
+.latitude, .longitude {
+    margin: 0;
+}
+
+.editable-text {
+    margin-top: 10px;
+    width: 200px;
+    height: 100px;
+    border: solid;
+    display: inline-block;
+    overflow: scroll;
+}
+
+.editable-text:hover {
+    cursor: text;
+}
+
+.scroll-btn {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    padding: 10px;
+    display: none;
+}
+
+.some-block {
+    width: 200px;
+    height: 200px;
+    margin: auto;
+    margin-top: 20px;
+    background-color: rgb(0, 174, 255);
+    display: flex;
+    justify-self: center;
+}
+
+.another-block {
+    width: 80px;
+    height: 80px;
+    margin: auto;
+    background-color: green;
+}
+
+.gray-block {
+    background-color: #5252524c;
+    opacity: 0.5;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.gray-block-btn {
+    margin-bottom: 10px;
+}
+
+#submit-form {
+    margin-bottom: 10px;
+}
+.file-input {
+    color: transparent;
+}
+.file-input::-webkit-file-upload-button {
+    visibility: hidden;
+}
+
+.file-input::before {
+    padding: 15px;
+    content: attr(data-before);
+    display: inline-block;
+    background: gray;
+    cursor: pointer;
+    overflow: hidden;
+    color: black;
+}
+
+.input-file-container {
+    padding: 15px;
+    width: 400px;
+}
