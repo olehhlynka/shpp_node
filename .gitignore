@@ -1,2 +1,4 @@
 /primitive servers/eventloop2.2/node_modules
 /primitive servers/restmongo2.4/node_modules
+/primitive servers/restmongo2.4/sessions
+/primitive servers/restmongo2.4/.env
