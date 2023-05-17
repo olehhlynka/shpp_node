@@ -9,7 +9,7 @@ const body_parser_1 = __importDefault(require("body-parser"));
 const cors_1 = __importDefault(require("cors"));
 const express_session_1 = __importDefault(require("express-session"));
 const session_file_store_1 = __importDefault(require("session-file-store"));
-const v1_1 = __importDefault(require("./routes/v1"));
+const v2_1 = __importDefault(require("./routes/v2"));
 const cookieParser = require("cookie-parser");
 dotenv_1.default.config();
 const allowedOrigins = ["http://127.0.0.1:5500"];
@@ -26,8 +26,9 @@ const sessionOptions = {
     secret: secret,
     resave: false,
     saveUninitialized: false,
+    //uncomment to use cookies in CORS
     /*cookie: {
-      domain: "http://127.0.0.1:5500",
+      domain: allowedOrigins[0],
       httpOnly: false,
       sameSite: "none",
       secure: true,
@@ -38,5 +39,6 @@ app.use((0, express_session_1.default)(sessionOptions));
 app.use((0, cors_1.default)(corsOptions));
 app.use(body_parser_1.default.json());
 app.use(express_1.default.static("public"));
-app.use("/api/v1", v1_1.default);
+//app.use("/api/v1", v1Routes);
+app.use("/api/v2", v2_1.default);
 exports.default = app;

@@ -323,7 +323,7 @@ README:
                 pass: '',
                 backendLanguage: 'JS',
                 apiURL: 'http://localhost:8000/api/',
-                apiVersion: 'v1',
+                apiVersion: 'v2',
                 step: ''
             },
             computed: {
@@ -378,7 +378,7 @@ README:
                     if (this.new_task.text.trim() !== '') {
                         let request = JSON.stringify({ text: this.new_task.text });
                         const route = this.apiVersion === 'v1' ? '/items' : '/router';
-                        const qs = { action: this.apiVersion === 'v1' ? '' : 'createItem' };
+                        const qs = { action: this.apiVersion === 'v1' ? '' : 'addItem' };
                         fetch(this.apiURL + this.apiVersion + route + this.backendSuffix + '?' + new URLSearchParams(qs), {
                             method: this.apiVersion === 'v1' ? 'POST' : 'POST',
                             body: request,
@@ -438,7 +438,7 @@ README:
                 logout() {
                     const route = this.apiVersion === 'v1' ? '/logout' : '/router';
                     const qs = { action: this.apiVersion === 'v1' ? '' : 'logout' };
-                    fetch(this.apiURL + this.apiVersion + route, {
+                    fetch(this.apiURL + this.apiVersion + route + this.backendSuffix + "?" + new URLSearchParams(qs), {
                         method: this.apiVersion === 'v1' ? 'POST' : 'POST',
                         credentials: 'include',
                     }).then(res => res.json())

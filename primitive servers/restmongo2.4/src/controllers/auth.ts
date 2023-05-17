@@ -1,11 +1,6 @@
 import { Request, Response } from "express";
 import { validationResult } from "express-validator";
-import {
-  loginUser,
-  registerUser,
-} from "../../db/connection";
-
-const cookieName = "connect.sid";
+import { loginUser, registerUser } from "../db/connection";
 
 class AuthController {
   async login(req: Request, res: Response) {
@@ -61,7 +56,6 @@ class AuthController {
         return res.status(403).send({ error: "forbidden" });
       }
       req.session.destroy(() => {
-        //res.clearCookie(cookieName);
         console.log(`Session was destroyed`);
       });
       res.send({ ok: true });

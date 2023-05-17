@@ -7,6 +7,7 @@ import sessionFileStore, {
   FileStore,
 } from "session-file-store";
 import v1Routes from "./routes/v1";
+import v2Routes from "./routes/v2";
 const cookieParser = require("cookie-parser");
 
 dotenv.config();
@@ -36,8 +37,9 @@ const sessionOptions: SessionOptions = {
   secret: secret,
   resave: false,
   saveUninitialized: false,
+  //uncomment to use cookies in CORS
   /*cookie: {
-    domain: "http://127.0.0.1:5500",
+    domain: allowedOrigins[0],
     httpOnly: false,
     sameSite: "none",
     secure: true,
@@ -51,6 +53,7 @@ app.use(session(sessionOptions));
 app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(express.static("public"));
-app.use("/api/v1", v1Routes);
+//app.use("/api/v1", v1Routes);
+app.use("/api/v2", v2Routes);
 
 export default app;

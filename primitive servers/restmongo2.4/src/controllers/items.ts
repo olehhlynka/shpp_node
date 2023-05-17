@@ -4,8 +4,8 @@ import {
   addItem,
   editItem,
   deleteItem,
-} from "../../db/connection";
-import { Todo } from "../../types/types";
+} from "../db/connection";
+import { Todo } from "../types/types";
 
 class ItemsController {
   async getItems(req: Request, res: Response) {
